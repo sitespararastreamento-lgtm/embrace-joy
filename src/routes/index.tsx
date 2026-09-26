@@ -30,7 +30,7 @@ const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponen
 const waLink = (msg: string) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 const INSTAGRAM_LINK = "https://www.instagram.com/rj_manutencoes_ltda/";
-const EMAIL = "Rjmanutençoesltda25@gmail.com";
+const EMAIL = "rjmanutençoesltda25@gmail.com";
 const PHONE_DISPLAY = "+55 85 9 9938-7235";
 
 const HERO_FOTOS = [
