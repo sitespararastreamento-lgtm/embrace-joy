@@ -26,6 +26,13 @@ const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponen
 const INSTAGRAM_LINK = "https://www.instagram.com/rj_manutencoes_ltda/";
 const EMAIL = "Rjmanutençoesltda25@gmail.com";
 const PHONE_DISPLAY = "+55 85 9 9938-7235";
+const IMAGE_FALLBACK =
+  "https://images.pexels.com/photos/38264272/pexels-photo-38264272.jpeg?auto=compress&cs=tinysrgb&w=1600";
+
+const handleImageError = (event: React.SyntheticEvent<HTMLImageElement>) => {
+  event.currentTarget.onerror = null;
+  event.currentTarget.src = IMAGE_FALLBACK;
+};
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -118,6 +125,7 @@ function Index() {
             <img
               src={logo.url}
               alt="RJ Manutenções"
+              onError={handleImageError}
               className="h-11 w-11 rounded-lg object-contain sm:h-12 sm:w-12"
             />
             <span className="leading-tight">
@@ -239,6 +247,7 @@ function Index() {
                 <img
                   src={logo.url}
                   alt="Logo RJ Manutenções"
+                  onError={handleImageError}
                   className="mx-auto h-48 w-48 object-contain sm:h-60 sm:w-60"
                 />
               </div>
@@ -312,6 +321,7 @@ function Index() {
                 <img
                   src={logo.url}
                   alt="RJ Manutenções"
+                  onError={handleImageError}
                   className="mx-auto h-40 w-40 object-contain sm:h-48 sm:w-48"
                 />
               </div>
@@ -439,6 +449,7 @@ function Index() {
                 <img
                   src={logo.url}
                   alt="RJ Manutenções"
+                  onError={handleImageError}
                   className="h-14 w-14 object-contain"
                 />
               </div>
@@ -476,7 +487,18 @@ function Index() {
           </div>
 
           <div className="mt-10 border-t border-white/10 pt-6 text-center text-xs text-brand-foreground/60">
-            © 2026 RJ Manutenções. Todos os direitos reservados.
+            <p>© 2026 RJ Manutenções. Todos os direitos reservados.</p>
+            <p className="mt-2">
+              Foto de suporte: Bulat843 🌙 via{" "}
+              <a
+                href="https://www.pexels.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline transition-colors hover:text-gold"
+              >
+                Pexels
+              </a>
+            </p>
           </div>
         </div>
       </footer>
