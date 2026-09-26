@@ -18,14 +18,42 @@ import {
   MessageCircle,
 } from "lucide-react";
 import logo from "@/assets/rj-logo.png.asset.json";
+import fotoLed from "@/assets/projeto-iluminacao-led.jpg.asset.json";
+import fotoMarcenaria from "@/assets/projeto-marcenaria-adega.jpg.asset.json";
+import fotoLavabo from "@/assets/projeto-lavabo-espelho.jpg.asset.json";
+import fotoFechadura from "@/assets/projeto-fechadura-digital.jpg.asset.json";
 
 const WHATSAPP_NUMBER = "5585999387235";
 const WHATSAPP_MESSAGE =
   "Olá! Vim pelo site da RJ Manutenções e gostaria de solicitar um orçamento.";
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+const waLink = (msg: string) =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 const INSTAGRAM_LINK = "https://www.instagram.com/rj_manutencoes_ltda/";
 const EMAIL = "Rjmanutençoesltda25@gmail.com";
 const PHONE_DISPLAY = "+55 85 9 9938-7235";
+
+const HERO_FOTOS = [
+  { src: fotoLed.url, alt: "Sala com iluminação em LED instalada pela RJ Manutenções" },
+  { src: fotoLavabo.url, alt: "Lavabo com espelho iluminado e instalação elétrica" },
+  { src: fotoMarcenaria.url, alt: "Ambientes com iluminação embutida em marcenaria" },
+  { src: fotoFechadura.url, alt: "Fechadura eletrônica instalada em porta residencial" },
+];
+
+const PLANOS = [
+  {
+    nome: "Plano Básico",
+    destaque: false,
+    mensagem:
+      "Olá! Tenho interesse em contratar o Plano Básico da RJ Manutenções. Gostaria de receber mais informações e saber como funciona a contratação.",
+  },
+  {
+    nome: "Plano Black",
+    destaque: true,
+    mensagem:
+      "Olá! Tenho interesse em contratar o Plano Black da RJ Manutenções. Gostaria de receber mais informações e saber como funciona a contratação.",
+  },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -51,6 +79,7 @@ export const Route = createFileRoute("/")({
 
 const NAV = [
   { label: "Início", href: "#inicio" },
+  { label: "Planos", href: "#planos" },
   { label: "Serviços", href: "#servicos" },
   { label: "Sobre", href: "#sobre" },
   { label: "Contato", href: "#contato" },
@@ -230,22 +259,103 @@ function Index() {
           </div>
 
           <div className="flex justify-center md:justify-end">
-            <div className="relative">
+            <div className="relative w-full max-w-md">
               <div
                 aria-hidden
                 className="absolute inset-0 -m-6 rounded-[2rem] bg-gold/15 blur-2xl"
               />
-              <div className="relative rounded-[2rem] bg-white p-6 shadow-2xl sm:p-8">
-                <img
-                  src={logo.url}
-                  alt="Logo RJ Manutenções"
-                  className="mx-auto h-48 w-48 object-contain sm:h-60 sm:w-60"
-                />
+              <div className="relative grid grid-cols-2 gap-3 sm:gap-4">
+                {HERO_FOTOS.map((foto, i) => (
+                  <div
+                    key={foto.src}
+                    className={`overflow-hidden rounded-2xl border border-white/15 shadow-2xl ${
+                      i % 2 === 0 ? "translate-y-0" : "translate-y-5 sm:translate-y-8"
+                    }`}
+                  >
+                    <img
+                      src={foto.src}
+                      alt={foto.alt}
+                      loading="lazy"
+                      className="h-40 w-full object-cover transition-transform duration-500 hover:scale-105 sm:h-52"
+                    />
+                  </div>
+                ))}
               </div>
+              <a
+                href={INSTAGRAM_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative mt-10 inline-flex items-center gap-2 text-xs font-semibold text-brand-foreground/70 transition-colors hover:text-gold sm:mt-14"
+              >
+                <Instagram className="h-4 w-4" /> Veja mais no nosso Instagram
+              </a>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Planos */}
+      <section id="planos" className="bg-secondary/40">
+        <div className="mx-auto max-w-6xl px-5 py-16 md:py-24">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-2xl font-extrabold tracking-tight text-brand sm:text-3xl md:text-4xl">
+              Escolha seu plano
+            </h2>
+            <div className="mx-auto mt-3 h-1 w-16 rounded-full bg-gold" />
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground">
+              Tenha a RJ Manutenções à disposição. Escolha o plano que deseja contratar e fale
+              conosco pelo WhatsApp.
+            </p>
+          </div>
+
+          <div className="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-2">
+            {PLANOS.map((plano) => (
+              <article
+                key={plano.nome}
+                className={`group flex flex-col items-center justify-between rounded-3xl border p-10 text-center shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl ${
+                  plano.destaque
+                    ? "border-gold/40 bg-brand-deep text-brand-foreground"
+                    : "border-border bg-card"
+                }`}
+              >
+                <div>
+                  {plano.destaque && (
+                    <span className="mb-5 inline-block rounded-full bg-gold px-4 py-1 text-[11px] font-bold uppercase tracking-wider text-gold-foreground">
+                      Premium
+                    </span>
+                  )}
+                  <h3
+                    className={`text-2xl font-extrabold tracking-tight sm:text-3xl ${
+                      plano.destaque ? "text-gold" : "text-brand"
+                    }`}
+                  >
+                    {plano.nome}
+                  </h3>
+                  <div
+                    className={`mx-auto mt-4 h-0.5 w-12 rounded-full ${
+                      plano.destaque ? "bg-gold/60" : "bg-gold"
+                    }`}
+                  />
+                </div>
+
+                <a
+                  href={waLink(plano.mensagem)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`mt-10 inline-flex w-full items-center justify-center rounded-full px-7 py-3.5 text-sm font-bold transition-all hover:-translate-y-0.5 ${
+                    plano.destaque
+                      ? "bg-gold text-gold-foreground shadow-lg hover:shadow-xl"
+                      : "bg-brand text-brand-foreground hover:bg-brand-deep"
+                  }`}
+                >
+                  Quero contratar
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       {/* Serviços */}
       <section id="servicos" className="mx-auto max-w-6xl px-5 py-16 md:py-24">
