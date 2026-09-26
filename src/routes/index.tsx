@@ -60,7 +60,7 @@ const PLANOS = [
   {
     nome: "Plano Black",
     preco: "R$ 689,90",
-    detalhe: "4 visitas de 2 horas cada ao mês.",
+    detalhe: "\n",
     destaque: true,
     mensagem:
       "Olá! Tenho interesse em contratar o Plano Black da RJ Manutenções. Gostaria de receber mais informações e saber como funciona a contratação.",
