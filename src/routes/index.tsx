@@ -23,7 +23,7 @@ import fotoMarcenaria from "@/assets/projeto-marcenaria-adega.jpg.asset.json";
 import fotoLavabo from "@/assets/projeto-lavabo-espelho.jpg.asset.json";
 import fotoFechadura from "@/assets/projeto-fechadura-digital.jpg.asset.json";
 
-const WHATSAPP_NUMBER = "5585999387235";
+const WHATSAPP_NUMBER = "5585921706209";
 const WHATSAPP_MESSAGE =
   "Olá! Vim pelo site da RJ Manutenções e gostaria de solicitar um orçamento.";
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
@@ -31,7 +31,7 @@ const waLink = (msg: string) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 const INSTAGRAM_LINK = "https://www.instagram.com/rj_manutencoes_ltda/";
 const EMAIL = "rjmanutençoesltda25@gmail.com";
-const PHONE_DISPLAY = "+55 85 9 9938-7235";
+const PHONE_DISPLAY = "(85) 92170-6209";
 
 const HERO_FOTOS = [
   { src: fotoLed.url, alt: "Sala com iluminação em LED instalada pela RJ Manutenções" },
@@ -43,12 +43,24 @@ const HERO_FOTOS = [
 const PLANOS = [
   {
     nome: "Plano Básico",
+    preco: "R$ 189,90",
+    detalhe: null as string | null,
     destaque: false,
     mensagem:
       "Olá! Tenho interesse em contratar o Plano Básico da RJ Manutenções. Gostaria de receber mais informações e saber como funciona a contratação.",
   },
   {
+    nome: "Plano Médio",
+    preco: "R$ 339,90",
+    detalhe: null as string | null,
+    destaque: false,
+    mensagem:
+      "Olá! Tenho interesse em contratar o Plano Médio da RJ Manutenções. Gostaria de receber mais informações e saber como funciona a contratação.",
+  },
+  {
     nome: "Plano Black",
+    preco: "R$ 689,90",
+    detalhe: "4 visitas de 2 horas cada ao mês.",
     destaque: true,
     mensagem:
       "Olá! Tenho interesse em contratar o Plano Black da RJ Manutenções. Gostaria de receber mais informações e saber como funciona a contratação.",
@@ -308,11 +320,11 @@ function Index() {
             </p>
           </div>
 
-          <div className="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-2">
+          <div className="mx-auto mt-12 grid max-w-5xl gap-6 md:grid-cols-3">
             {PLANOS.map((plano) => (
               <article
                 key={plano.nome}
-                className={`group flex flex-col items-center justify-between rounded-3xl border p-10 text-center shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl ${
+                className={`group flex flex-col items-center justify-between rounded-3xl border p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl ${
                   plano.destaque
                     ? "border-gold/40 bg-brand-deep text-brand-foreground"
                     : "border-border bg-card"
@@ -325,7 +337,7 @@ function Index() {
                     </span>
                   )}
                   <h3
-                    className={`text-2xl font-extrabold tracking-tight sm:text-3xl ${
+                    className={`text-2xl font-extrabold tracking-tight ${
                       plano.destaque ? "text-gold" : "text-brand"
                     }`}
                   >
@@ -336,6 +348,22 @@ function Index() {
                       plano.destaque ? "bg-gold/60" : "bg-gold"
                     }`}
                   />
+                  <p
+                    className={`mt-6 text-3xl font-extrabold tracking-tight ${
+                      plano.destaque ? "text-brand-foreground" : "text-brand"
+                    }`}
+                  >
+                    {plano.preco}
+                  </p>
+                  {plano.detalhe && (
+                    <p
+                      className={`mt-4 text-sm leading-relaxed ${
+                        plano.destaque ? "text-brand-foreground/80" : "text-muted-foreground"
+                      }`}
+                    >
+                      {plano.detalhe}
+                    </p>
+                  )}
                 </div>
 
                 <a
