@@ -18,14 +18,42 @@ import {
   MessageCircle,
 } from "lucide-react";
 import logo from "@/assets/rj-logo.png.asset.json";
+import fotoLed from "@/assets/projeto-iluminacao-led.jpg.asset.json";
+import fotoMarcenaria from "@/assets/projeto-marcenaria-adega.jpg.asset.json";
+import fotoLavabo from "@/assets/projeto-lavabo-espelho.jpg.asset.json";
+import fotoFechadura from "@/assets/projeto-fechadura-digital.jpg.asset.json";
 
 const WHATSAPP_NUMBER = "5585999387235";
 const WHATSAPP_MESSAGE =
   "Olá! Vim pelo site da RJ Manutenções e gostaria de solicitar um orçamento.";
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+const waLink = (msg: string) =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 const INSTAGRAM_LINK = "https://www.instagram.com/rj_manutencoes_ltda/";
 const EMAIL = "Rjmanutençoesltda25@gmail.com";
 const PHONE_DISPLAY = "+55 85 9 9938-7235";
+
+const HERO_FOTOS = [
+  { src: fotoLed.url, alt: "Sala com iluminação em LED instalada pela RJ Manutenções" },
+  { src: fotoLavabo.url, alt: "Lavabo com espelho iluminado e instalação elétrica" },
+  { src: fotoMarcenaria.url, alt: "Ambientes com iluminação embutida em marcenaria" },
+  { src: fotoFechadura.url, alt: "Fechadura eletrônica instalada em porta residencial" },
+];
+
+const PLANOS = [
+  {
+    nome: "Plano Básico",
+    destaque: false,
+    mensagem:
+      "Olá! Tenho interesse em contratar o Plano Básico da RJ Manutenções. Gostaria de receber mais informações e saber como funciona a contratação.",
+  },
+  {
+    nome: "Plano Black",
+    destaque: true,
+    mensagem:
+      "Olá! Tenho interesse em contratar o Plano Black da RJ Manutenções. Gostaria de receber mais informações e saber como funciona a contratação.",
+  },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -51,6 +79,7 @@ export const Route = createFileRoute("/")({
 
 const NAV = [
   { label: "Início", href: "#inicio" },
+  { label: "Planos", href: "#planos" },
   { label: "Serviços", href: "#servicos" },
   { label: "Sobre", href: "#sobre" },
   { label: "Contato", href: "#contato" },
