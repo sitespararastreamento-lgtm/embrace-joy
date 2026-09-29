@@ -17,11 +17,11 @@ import {
   CheckCircle2,
   MessageCircle,
 } from "lucide-react";
-import logo from "@/assets/rj-logo.png.asset.json";
-import fotoLed from "@/assets/projeto-iluminacao-led.jpg.asset.json";
-import fotoMarcenaria from "@/assets/projeto-marcenaria-adega.jpg.asset.json";
-import fotoLavabo from "@/assets/projeto-lavabo-espelho.jpg.asset.json";
-import fotoFechadura from "@/assets/projeto-fechadura-digital.jpg.asset.json";
+import logo from "@/assets/rj-logo.png";
+import fotoLed from "@/assets/projeto-iluminacao-led.jpg";
+import fotoMarcenaria from "@/assets/projeto-marcenaria-adega.jpg";
+import fotoLavabo from "@/assets/projeto-lavabo-espelho.jpg";
+import fotoFechadura from "@/assets/projeto-fechadura-digital.jpg";
 
 const WHATSAPP_NUMBER = "5585921706209";
 const WHATSAPP_MESSAGE =
@@ -34,10 +34,10 @@ const EMAIL = "rjmanutençoesltda25@gmail.com";
 const PHONE_DISPLAY = "(85) 92170-6209";
 
 const HERO_FOTOS = [
-  { src: fotoLed.url, alt: "Sala com iluminação em LED instalada pela RJ Manutenções" },
-  { src: fotoLavabo.url, alt: "Lavabo com espelho iluminado e instalação elétrica" },
-  { src: fotoMarcenaria.url, alt: "Ambientes com iluminação embutida em marcenaria" },
-  { src: fotoFechadura.url, alt: "Fechadura eletrônica instalada em porta residencial" },
+  { src: fotoLed, alt: "Sala com iluminação em LED instalada pela RJ Manutenções" },
+  { src: fotoLavabo, alt: "Lavabo com espelho iluminado e instalação elétrica" },
+  { src: fotoMarcenaria, alt: "Ambientes com iluminação embutida em marcenaria" },
+  { src: fotoFechadura, alt: "Fechadura eletrônica instalada em porta residencial" },
 ];
 
 const PLANOS = [
@@ -157,7 +157,7 @@ function Index() {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
           <a href="#inicio" className="flex items-center gap-3">
             <img
-              src={logo.url}
+              src={logo}
               alt="RJ Manutenções"
               className="h-11 w-11 rounded-lg object-contain sm:h-12 sm:w-12"
             />
@@ -448,7 +448,7 @@ function Index() {
               />
               <div className="relative rounded-2xl bg-white p-6">
                 <img
-                  src={logo.url}
+                  src={logo}
                   alt="RJ Manutenções"
                   className="mx-auto h-40 w-40 object-contain sm:h-48 sm:w-48"
                 />
@@ -575,7 +575,7 @@ function Index() {
             <div className="flex flex-col items-center gap-4 md:flex-row md:items-center">
               <div className="rounded-xl bg-white p-2">
                 <img
-                  src={logo.url}
+                  src={logo}
                   alt="RJ Manutenções"
                   className="h-14 w-14 object-contain"
                 />
