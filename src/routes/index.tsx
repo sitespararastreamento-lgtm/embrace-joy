@@ -17,11 +17,11 @@ import {
   CheckCircle2,
   MessageCircle,
 } from "lucide-react";
-import logo from "@/assets/rj-logo.png.asset.json";
-import fotoLed from "@/assets/projeto-iluminacao-led.jpg.asset.json";
-import fotoMarcenaria from "@/assets/projeto-marcenaria-adega.jpg.asset.json";
-import fotoLavabo from "@/assets/projeto-lavabo-espelho.jpg.asset.json";
-import fotoFechadura from "@/assets/projeto-fechadura-digital.jpg.asset.json";
+import logo from "@/assets/rj-logo.png";
+import fotoLed from "@/assets/projeto-iluminacao-led.jpg";
+import fotoMarcenaria from "@/assets/projeto-marcenaria-adega.jpg";
+import fotoLavabo from "@/assets/projeto-lavabo-espelho.jpg";
+import fotoFechadura from "@/assets/projeto-fechadura-digital.jpg";
 
 const WHATSAPP_NUMBER = "5585921706209";
 const WHATSAPP_MESSAGE =
